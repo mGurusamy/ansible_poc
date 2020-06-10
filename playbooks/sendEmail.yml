@@ -1,0 +1,26 @@
+---
+# Sending Eamil Example
+- name: Trying to send Email to various other hosts about ansible patching
+  hosts: localhost
+  tasks:
+    - name: Create Lock file
+      file:
+        path: '{{ lockfile }}'
+        state: touch
+        sudo: true
+        
+    - name: Sending Email using centeralised mail server
+      mail:
+        host: 172.31.18.243
+        port: 25
+        to: cloud user <cloud_user@[172.31.30.86]
+        from: cloud_user <cloud_user@manoharangurusamy1c.mylabserver.com>
+        subject: Ansible Report updated
+        body: System {{ ansible_hostname }} about to apply some patches.
+      ignore_errors: true
+    
+    - name: Wait for lock file removal as a confirmation
+      wait_for:
+        path: /var/lock/ansible_patch.lock
+        state: absent
+        msg: "Specified Lock file is still present"

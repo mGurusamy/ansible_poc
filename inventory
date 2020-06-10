@@ -1,0 +1,10 @@
+[category01]
+host01	ansible_host=manoharangurusamy2c.mylabserver.com
+host02	ansible_host=manoharangurusamy3c.mylabserver.com
+host03  ansible_host=manoharangurusamy4c.mylabserver.com
+host04  ansible_host=manoharangurusamy5c.mylabserver.com
+host05  ansible_host=manoharangurusamy6c.mylabserver.com
+host06  ansible_host=manoharangurusamy7c.mylabserver.com
+
+[category02]
+host07	ansible_host=manoharangurusamy8c.mylabserver.com
