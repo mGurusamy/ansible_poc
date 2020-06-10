@@ -1,12 +1,12 @@
 ---
 # vm patch work examples
-- name: vm patch work example
+- name: ansible patch work PoC Details
   hosts: category01
   gather_facts: true
   become: true
 
   vars_files:
-    - /home/cloud_user/vm_poc/previlege_user
+    - /home/cloud_user/cusotmerx_poc/previlege_user
   vars:
     ansible_become_pass: '{{ previlege_access }}'
     mail_server: 172.31.18.243
@@ -40,8 +40,8 @@
           mail:
             host: '{{ mail_server }}'
             port: '{{ smtp_service_port }}'
-            to: Manoharan Gurusamy <cloud_user@[{{ ansible_default_ipv4.address }}]>
-            from: Manoharan Gurusamy <cloud_user@{{ ansible_fqdn }}>
+            to: Cloud User<cloud_user@[{{ ansible_default_ipv4.address }}]>
+            from: Cloud User <cloud_user@{{ ansible_fqdn }}>
             subject: Ansible-patching
             body: Hello, System {{ ansible_hostname }} about to get patches from Ansible control server. Please save your work. To acknowlege this email, please remove the file {{ lock_file }} which is owned by root. If you dont remove this lock file, patches wont be applied to this host - {{ ansible_hostname }}. Thank you for your co-operation and we will inform you after the patching process completed. Thank you.
           ignore_errors: true

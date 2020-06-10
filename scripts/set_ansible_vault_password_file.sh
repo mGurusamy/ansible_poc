@@ -1,3 +1,3 @@
 #!/bin/sh
 # set the environement variable for ansible_vault_password_file
-export ANSIBLE_VAULT_PASSWORD_FILE=/home/cloud_user/vm_poc/.vault_pass.txt
+export ANSIBLE_VAULT_PASSWORD_FILE=/home/cloud_user/customerx_poc/.vault_pass.txt

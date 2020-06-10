@@ -2,6 +2,11 @@
 # Sending Eamil Example
 - name: Trying to send Email to various other hosts about ansible patching
   hosts: localhost
+  become: true
+  
+  vars:
+    lockfile: /var/lock/ansible_patch.lock
+
   tasks:
     - name: Create Lock file
       file:
@@ -16,7 +21,7 @@
         to: cloud user <cloud_user@[172.31.30.86]
         from: cloud_user <cloud_user@manoharangurusamy1c.mylabserver.com>
         subject: Ansible Report updated
-        body: System {{ ansible_hostname }} about to apply some patches.
+        body: System {{ ansible_hostname }} about to get some patches from control server.
       ignore_errors: true
     
     - name: Wait for lock file removal as a confirmation
