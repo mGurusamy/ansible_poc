@@ -1,5 +1,5 @@
 ---
-# vm patch work examples
+# customer patch work PoC Details
 - name: ansible patch work PoC Details
   hosts: category01
   gather_facts: true
